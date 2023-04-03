@@ -14,13 +14,13 @@ public class Homework19 extends BaseTest  {
     }
 
     //WHEN:
-        public void openPlaylist() throws InterruptedException {
+        public void openPlaylist() {
             WebElement Playlist = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".playlist:nth-child(3)"));
             Playlist.click();
 
         }
 //THEN:
-        public void deletePlaylist() throws InterruptedException {
+        public void deletePlaylist() {
         WebElement deletePlaylistButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".btn-delete-playlist"));
         deletePlaylistButton.click();
         }
