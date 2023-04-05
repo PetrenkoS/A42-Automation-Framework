@@ -63,4 +63,10 @@ public class BaseTest {
         WebElement submitLoginButton = driver.findElement(By.cssSelector("button[type='submit']"));
         submitLoginButton.click();
     }
+
+    protected void deletePlaylistButton() {
+        WebElement deletePlaylistButton = driver.manage().timeots().ExplicitlyWait(millis:1000);
+
+    }
 }
+
