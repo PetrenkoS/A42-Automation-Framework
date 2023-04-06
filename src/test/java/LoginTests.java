@@ -1,4 +1,6 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
@@ -21,5 +23,20 @@ public class LoginTests extends BaseTest {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
+
+        WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
+        emailField.click();
+        emailField.sendKeys("anna.stonaieva@testpro.io");
+
+        WebElement passwordField = driver.findElement(By.cssSelector("[type='password]"));
+        passwordField.click();
+        passwordField.sendKeys("te$t$tudent");
+
+        WebElement submitButton = driver.findElement(By.cssSelector("[type='submit']"));
+        submitButton.click();
+
+        WebElement avatarIcon = driver.findElement(By.cssSelector("[alt='Avatar of student']"));
+        Assert.assertTrue(avatarIcon.isDisplayed());
+
     }
 }
