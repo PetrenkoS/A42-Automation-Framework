@@ -11,12 +11,10 @@ public class BaseTest extends BasePage {
     protected final BasePage basePage = new BasePage();
     public String url = "https://bbb.testpro.io/";
 
-
-//    @BeforeSuite
-//    static void setupClass() {
-//        WebDriverManager.safaridriver().setup();
-//    }
-
+    @BeforeSuite
+    static void setupClass() {
+        //WebDriverManager.chromedriver().setup();
+    }
     @BeforeMethod
     public void setUpBrowser() throws MalformedURLException {
         basePage.initBrowser(url);

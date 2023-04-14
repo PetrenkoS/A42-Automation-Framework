@@ -13,14 +13,14 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[type='password']")
     WebElement passwordInput;
 
-   // By passwordField = By.cssSelector("[type='password']");
+    // By passwordField = By.cssSelector("[type='password']");
 
     @FindBy(xpath = "//input[@type='email']")
     WebElement emailInput;
 
-   // By emailField = By.xpath("//input[@type='email']");
+    // By emailField = By.xpath("//input[@type='email']");
 
-//    @FindBy(css = "button[type='submit']")
+    //    @FindBy(css = "button[type='submit']")
 //    WebElement submitLoginButton;
     By submitBtn = By.cssSelector("button[type='submit']");
 
@@ -32,7 +32,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage enterPassword(String password) {
-       // WebElement passwordInput = waitUntilVisible(passwordField);
+        // WebElement passwordInput = waitUntilVisible(passwordField);
         passwordInput.click();
         passwordInput.clear();
         passwordInput.sendKeys(password);
@@ -40,7 +40,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage enterEmail(String email) {
-       // WebElement emailInput = waitUntilVisible(emailField);
+        // WebElement emailInput = waitUntilVisible(emailField);
         emailInput.click();
         emailInput.clear();
         emailInput.sendKeys(email);
@@ -57,3 +57,4 @@ public class LoginPage extends BasePage {
         return waitUntilVisible(submitBtn);
     }
 }
+
