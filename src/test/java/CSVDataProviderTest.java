@@ -45,5 +45,4 @@ public class CSVDataProviderTest extends BaseTest {
         Assert.assertEquals(basePage.getDriver().getCurrentUrl(), url);
     }
 
-
 }

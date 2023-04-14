@@ -1,11 +1,13 @@
 package pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -18,8 +20,8 @@ import java.time.Duration;
 
 public class BasePage {
 
-
     static WebDriver driver;
+    WebDriverWait wait;
 
     public static void closeBrowser() {
         driver.quit();
@@ -37,11 +39,11 @@ public class BasePage {
     }
 
 
-    public WebElement waitUntilVisible(WebElement element){
-        return new WebDriverWait(driver, Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOf(element));
+    public WebElement waitUntilVisible(By element){
+        return new WebDriverWait(driver, Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
-    public WebElement waitUntilClickable(WebElement element){
+    public WebElement waitUntilClickable(By element){
         return new WebDriverWait(driver, Duration.ofSeconds(4)).until(ExpectedConditions.elementToBeClickable(element));
     }
 

@@ -1,62 +1,50 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class SongsPage extends BasePage {
-    @FindBy(css=".player-controls")
-    WebElement playControlPanel;
-    @FindBy(css="[data-testid='play-btn']")
-    WebElement playSongBtn;
-    @FindBy(css="[data-testid='sound-bar-play']")
-    WebElement getSoundBar;
-    @FindBy(css=".playback")
-    WebElement playBackBtn;
-    @FindBy(css=".song-item")
-    WebElement firstSong;
+    By playControlPanel = By.cssSelector(".player-controls");
+    By playSongBtn = By.cssSelector("[data-testid='play-btn']");
+    By pauseBtn = By.cssSelector("[data-testid='pause-btn']");
 
-    @FindBy (css="[data-testid='pause-btn']")
-    private WebElement pauseBtn;
-
-    @FindBy(css=".songs")
-    private List<WebElement> allSongs;
-
+    By songs = By.cssSelector("[data-test='song-card']");
 
     public void hoverOverPlayControl() {
-       new Actions(driver)
-               .moveToElement(waitUntilVisible(playControlPanel))
-               .perform();
-   }
+        new Actions(driver)
+                .moveToElement(waitUntilVisible(playControlPanel))
+                .perform();
+    }
 
 
-   public  void playSong() {
-       WebElement playBtn = waitUntilVisible(playSongBtn);
-       playBtn.click();
-   }
+    public  void playSong() {
+        WebElement playBtn = waitUntilVisible(playSongBtn);
+        playBtn.click();
+    }
 
-    public WebElement getPauseButton() {
+    public WebElement getPauseButton(){
         return waitUntilVisible(pauseBtn);
     }
 
     public List<WebElement> getSongs() {
-       return allSongs;
+        return driver.findElements(By.cssSelector("[data-test='song-card']"));
     }
 
     public WebElement getSoundBar(){
-        return waitUntilVisible(this.getSoundBar);
+        return waitUntilVisible(By.cssSelector("[data-testid='sound-bar-play']"));
     }
 
     public void clickPlayBtn() {
-        playBackBtn.click();
+        WebElement playBtn = driver.findElement(By.cssSelector(".playback"));
+        playBtn.click();
     }
 
     public void clickFirstSong() {
+        WebElement firstSong = driver.findElement(By.cssSelector(".song-item"));
         Actions actions = new Actions(driver);
         actions.contextClick(firstSong).perform();
     }
-
-
 }
